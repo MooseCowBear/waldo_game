@@ -1,0 +1,23 @@
+.game.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.game .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.thumbnail {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.game .outer-image-wrapper {
+  width: 100%;
+  overflow: auto;
+}

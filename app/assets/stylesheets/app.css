@@ -62,5 +62,8 @@ body {
   align-items: center;
   justify-content: center;
 
+  max-width: 1400px;
+  padding: 1rem;
+
   background-color: #FFFFFF;
 }
