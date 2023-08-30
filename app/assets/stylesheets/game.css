@@ -18,6 +18,35 @@
 }
 
 .game .outer-image-wrapper {
-  width: 100%;
+  max-width: 95vw;
   overflow: auto;
+}
+
+.game .image-wrapper {
+  width: max-content;
+  height: max-content;
+  transform-origin: top left;
+  margin: 0 auto;
+}
+
+.game img {
+  height: auto;
+  transform-origin: top left;
+  transition: transform ease .3s;
+}
+
+.zoom--1 {
+  transform: scale(0.8);
+}
+
+.zoom-0 {
+  transform: scale(1);
+}
+
+.zoom-1 {
+  transform: scale(2);
+}
+
+.zoom-2 {
+  transform: scale(2.5);
 }
