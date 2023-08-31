@@ -59,6 +59,7 @@ a:not([class]) {
 
 :root {
   --neutral-100:  rgb(245, 245, 245);
+  --neutral-100t: rgba(245, 245, 245, 0.7);
   --neutral-500: rgba(42, 42, 42);
 }
 

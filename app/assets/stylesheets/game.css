@@ -43,14 +43,28 @@
 
 .next-button {
   position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-
+  background-color: var(--neutral-100t);
   padding: 1.5rem 2rem;
   border-radius: 5px;
   border: 2px solid var(--neutral-500);
   text-align: center;
+  font-size: 1.4rem;
+}
+
+.upper {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.lower {
+  text-transform: lowercase;
 }
 
 .bounding-box {

@@ -113,7 +113,8 @@ export default Gameboard = ({
       </div>
       {!running && level < 3 && (
         <button className="next-button" onClick={nextLevelClickHandler}>
-          Take me to the next level.
+          <p className="upper">You found the target!</p>
+          <p className="lower">Click to move on to the next level.</p>
         </button>
       )}
     </div>
