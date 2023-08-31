@@ -1,5 +1,6 @@
 import React from "react";
 import Timer from "./Timer";
+import { useNavigate } from "react-router-dom";
 import { levelFinished } from "../helpers/game_helpers";
 import { levelDescription } from "../helpers/level_helpers";
 
@@ -12,6 +13,8 @@ export default Header = ({
   running,
   setRunning,
 }) => {
+  const navigate = useNavigate();
+
   const zoomInHandler = () => {
     if (zoomLevel < 2) {
       setZoomLevel((zoomLevel) => zoomLevel + 1);
@@ -29,6 +32,7 @@ export default Header = ({
     setZoomLevel(0);
     console.log("should be going to game over screen");
     // TODO: navigate to game over screen, where they can enter name to record score
+    navigate("/scores");
   };
 
   return (
