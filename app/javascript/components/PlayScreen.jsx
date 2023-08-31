@@ -4,7 +4,7 @@ import Header from "./Header";
 
 export default PlayScreen = () => {
   const [score, setScore] = useState({ 0: null, 1: null, 2: null, 3: null });
-  const [level, setLevel] = useState(0); // will be used when we start fetching...
+  const [level, setLevel] = useState(0); 
   const [zoomLevel, setZoomLevel] = useState(0);
 
   const [running, setRunning] = useState(true);
@@ -13,6 +13,7 @@ export default PlayScreen = () => {
   return (
     <div className="game wrapper">
       <Header
+        level={level}
         zoomLevel={zoomLevel}
         setZoomLevel={setZoomLevel}
         time={time}

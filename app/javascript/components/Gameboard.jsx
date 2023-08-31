@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { found, levelFinished } from "../helpers/game_helpers";
 
 export default Gameboard = ({
@@ -13,9 +13,21 @@ export default Gameboard = ({
   score,
   setScore,
 }) => {
-  // temp, this is for level 0 image, will FETCH this
+  const [boundingBoxActive, setBoundingBoxActive] = useState(false);
+  const [errorActive, setErrorActive] = useState(false);
+
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+
+  // TEMP: this is for level 0 image, will FETCH this
   const normalizedWinningX = 0.138671875;
   const normalizedWinningY = 0.1605839416;
+
+  if (boundingBoxActive && running) {
+    setTimeout(() => {
+      setBoundingBoxActive(false);
+      setErrorActive(false);
+    }, 1000)
+  }
 
   const imageClickHandler = (e) => {
     const x = e.nativeEvent.offsetX;
@@ -23,8 +35,6 @@ export default Gameboard = ({
 
     const imageWidth = e.target.clientWidth;
     const imageHeight = e.target.clientHeight;
-
-    // TODO: can bounding box dimensions be determined by size of the image?
 
     const charFound = found(
       60,
@@ -40,6 +50,13 @@ export default Gameboard = ({
 
     if (charFound) {
       levelFinished(level, time, setRunning, score, setScore);
+      setPosition({ x: x, y: y });
+      setBoundingBoxActive(true);
+    } else {
+      console.log("should make the box appear..."); 
+      setPosition({ x: x, y: y });
+      setBoundingBoxActive(true);
+      setErrorActive(true);
     }
   };
 
@@ -62,8 +79,24 @@ export default Gameboard = ({
           src="images/level_0.jpeg"
           alt=""
         />
+        {boundingBoxActive && (
+          <div
+            className="bounding-box"
+            style={{ left: position.x, top: position.y }}
+          >
+            {errorActive && <svg
+              className={`wrong-icon`}
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fill="white"
+                d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"
+              />
+            </svg>}
+          </div>
+        )}
       </div>
-      <div className="bounding-box"></div>
       {!running && (
         <button className="next-button" onClick={nextLevelClickHandler}>
           Take me to the next level

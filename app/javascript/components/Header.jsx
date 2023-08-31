@@ -1,8 +1,10 @@
 import React from "react";
 import Timer from "./Timer";
 import { levelFinished } from "../helpers/game_helpers";
+import { levelDescription } from "../helpers/level_helpers";
 
 export default Header = ({
+  level,
   zoomLevel,
   setZoomLevel,
   time,
@@ -38,17 +40,22 @@ export default Header = ({
   };
 
   return (
-    <div className="header">
-      <div className="button-wrapper">
-        <button onClick={zoomInHandler}>zoom in</button>
-        <button onClick={zoomOutHandler}>zoom out</button>
+    <>
+      <div className="header-title-div">
+        <h1>{`Level ${level}: ${levelDescription(level)}`}</h1>
+        <Timer time={time} setTime={setTime} running={running} />
       </div>
-      <div className="inline">
-        <p>Find me!</p>
-        <img className="thumbnail" src="images/thumb_level_0.jpeg" alt="" />
+      <div className="header">
+        <div className="button-wrapper">
+          <button onClick={zoomInHandler}>zoom in</button>
+          <button onClick={zoomOutHandler}>zoom out</button>
+        </div>
+        <div className="inline">
+          <p>You are looking for:</p>
+          <img className="thumbnail" src="images/thumb_level_0.jpeg" alt="" />
+        </div>
+        <button onClick={clickHandler}>I'm done.</button>
       </div>
-      <Timer time={time} setTime={setTime} running={running} />
-      <button onClick={clickHandler}>I'm done.</button>
-    </div>
+    </>
   );
 };
