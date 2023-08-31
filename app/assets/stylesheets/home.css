@@ -1,3 +1,57 @@
 .home.wrapper {
   text-align: center;
+  position: relative;
+  overflow: hidden;
+  color: var(--neutral-100);
+}
+
+.home-image {
+  width: clamp(320px, 100vw, 1400px);
+  height: 100vh;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.home-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+  width: clamp(300px, 80vw, 1000px);
+}
+
+.home.wrapper h1 {
+  font-family: 'Quattrocento Sans', sans-serif;
+  font-size: 2.5rem;
+  line-height: 1.2;
+}
+
+.home.wrapper h2 {
+  text-transform: uppercase;
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.home.wrapper p {
+  font-size: 1.25rem;
+}
+
+.home.wrapper a {
+  color: var(--neutral-100);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-decoration: none;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  border: 2px solid var(--neutral-100);
+}
+
+.home.wrapper a:hover, 
+.home.home.wrapper a:focus {
+  background-color: var(--neutral-100);
+  color: var(--neutral-500);
 }

@@ -30,8 +30,6 @@ export default Header = ({
   const clickHandler = () => {
     levelFinished(null, time, setRunning, null, null, false);
     setZoomLevel(0);
-    console.log("should be going to game over screen");
-    // TODO: navigate to game over screen, where they can enter name to record score
     navigate("/scores");
   };
 
