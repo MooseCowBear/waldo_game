@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { found, levelFinished } from "../helpers/game_helpers";
 
 export default Gameboard = ({
