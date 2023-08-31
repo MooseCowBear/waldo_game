@@ -26,15 +26,16 @@
   width: max-content;
   height: max-content;
   transform-origin: top left;
-  margin: 0 auto;
 }
 
-.game img {
+.game .image-wrapper img {
   height: auto;
   transform-origin: top left;
   transition: transform ease .3s;
+  border-radius: 5px;
 }
 
+/* do you want to allow zooming less than original? */
 .zoom--1 {
   transform: scale(0.8);
 }
@@ -49,4 +50,10 @@
 
 .zoom-2 {
   transform: scale(2.5);
+}
+
+.inline {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
 }
