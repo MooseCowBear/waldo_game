@@ -72,9 +72,14 @@ body {
   max-width: 1400px;
 
   background-color: var(--neutral-100);
+  color: var(--neutral-500);
   font-family: 'Quattrocento Sans', sans-serif;
 }
 
 h1, h2 {
   font-family: 'Quattrocento', serif;
+}
+
+button {
+  cursor: pointer;
 }

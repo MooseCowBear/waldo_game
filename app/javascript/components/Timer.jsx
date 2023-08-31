@@ -15,7 +15,7 @@ export default Timer = ({ time, setTime, running }) => {
   }, [running]);
 
   return (
-    <div>
+    <div className="timer">
       <span>{hours(time)}:</span>
       <span>{minutes(time).toString().padStart(2, "0")}:</span>
       <span>{seconds(time).toString().padStart(2, "0")}</span>
