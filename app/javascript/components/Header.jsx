@@ -12,7 +12,6 @@ export default Header = ({
   running,
   setRunning,
 }) => {
-
   const zoomInHandler = () => {
     if (zoomLevel < 2) {
       setZoomLevel((zoomLevel) => zoomLevel + 1);
@@ -26,14 +25,7 @@ export default Header = ({
   };
 
   const clickHandler = () => {
-    levelFinished(
-      null,
-      time,
-      setRunning,
-      null,
-      null,
-      false
-    );
+    levelFinished(null, time, setRunning, null, null, false);
     setZoomLevel(0);
     console.log("should be going to game over screen");
     // TODO: navigate to game over screen, where they can enter name to record score
@@ -52,7 +44,11 @@ export default Header = ({
         </div>
         <div className="inline">
           <p>You are looking for:</p>
-          <img className="thumbnail" src="images/thumb_level_0.jpeg" alt="" />
+          <img
+            className="thumbnail"
+            src={`images/thumb_level_${level}.jpeg`}
+            alt=""
+          />
         </div>
         <button onClick={clickHandler}>I'm done.</button>
       </div>

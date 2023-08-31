@@ -7,6 +7,8 @@ export const found = (
   normalizedWinningX,
   normalizedWinningY
 ) => {
+  if (normalizedWinningX === null) return false;
+
   const winningX = Math.round(normalizedWinningX * imageWidth);
   const winningY = Math.round(normalizedWinningY * imageHeight);
 
