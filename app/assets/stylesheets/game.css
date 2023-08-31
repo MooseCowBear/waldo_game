@@ -41,7 +41,7 @@
   transform: scale(2.5);
 }
 
-.next-button {
+.next-button, .form-wrapper {
   position: absolute;
   display: flex;
   flex-direction: column;

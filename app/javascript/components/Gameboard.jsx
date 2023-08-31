@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { found, levelFinished } from "../helpers/game_helpers";
 import { levelInfo } from "../helpers/level_helpers"; //temp
+import Form from "./Form";
 
 export default Gameboard = ({
   level,
@@ -16,8 +17,15 @@ export default Gameboard = ({
 }) => {
   const [boundingBoxActive, setBoundingBoxActive] = useState(false);
   const [errorActive, setErrorActive] = useState(false);
-
   const [position, setPosition] = useState({ x: 0, y: 0 });
+
+  const levelIncremented = useRef(false);
+
+  // otherwise the bounding box shows up when it shouldn't
+  if (levelIncremented.current) {
+    levelIncremented.current = false;
+    setBoundingBoxActive(false);
+  }
 
   // TEMP: this is for level 0 image, will FETCH this
   const winConditions = levelInfo();
@@ -65,7 +73,6 @@ export default Gameboard = ({
       setPosition({ x: x, y: y });
       setBoundingBoxActive(true);
     } else {
-      console.log("should make the box appear...");
       setPosition({ x: x, y: y });
       setBoundingBoxActive(true);
       setErrorActive(true);
@@ -73,6 +80,7 @@ export default Gameboard = ({
   };
 
   const nextLevelClickHandler = () => {
+    levelIncremented.current = true;
     setZoomLevel(0);
     setLevel(level + 1);
     setTime(0);
@@ -116,6 +124,11 @@ export default Gameboard = ({
           <p className="upper">You found the target!</p>
           <p className="lower">Click to move on to the next level.</p>
         </button>
+      )}
+      {!running && level === 3 && (
+        <div className="form-wrapper">
+          <Form score={score}/>
+        </div>
       )}
     </div>
   );

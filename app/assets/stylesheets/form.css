@@ -1,0 +1,59 @@
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+form h2 {
+  line-height: 1;
+}
+
+label {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  text-transform: lowercase;
+}
+
+input[type="text"] {
+  border-radius: 5px;
+  border: 2px solid var(--neutral-500);
+  padding: 0.5rem;
+  color: inherit;
+  background-color: transparent;
+  outline: none;
+  width: 100%;
+  font-family: inherit;
+}
+
+input[type="text"]:focus {
+  border: 2px solid rgb(189, 204, 177);
+  background-color: var(--neutral-100t);
+}
+
+input[type="submit"] {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-decoration: none;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  border: 2px solid var(--neutral-500);
+  cursor: pointer;
+  background-color: var(--neutral-500);
+  color: var(--neutral-100);
+}
+
+input[type="submit"]:hover, 
+input[type="submit"]:focus {
+  background-color: var(--neutral-100t);
+  color: var(--neutral-500);
+}
+
+form .new-game {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  text-transform: lowercase;
+  font-size: 1rem;
+  text-decoration: underline;
+}
