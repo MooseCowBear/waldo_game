@@ -6,6 +6,7 @@ export default Gameboard = ({
   setLevel,
   zoomLevel,
   setZoomLevel,
+  running,
   setRunning,
   time,
   setTime,
@@ -38,14 +39,15 @@ export default Gameboard = ({
     console.log("found?", charFound);
 
     if (charFound) {
-      // stops timer, resets time, and updates score
-      levelFinished(level, time, setRunning, score, setScore, setTime);
-      setZoomLevel(0);
-
-      if (level < 3) {
-        setLevel(level + 1);
-      }
+      levelFinished(level, time, setRunning, score, setScore);
     }
+  };
+
+  const nextLevelClickHandler = () => {
+    setZoomLevel(0);
+    setLevel(level + 1);
+    setTime(0);
+    setRunning(true);
   };
 
   return (
@@ -62,6 +64,11 @@ export default Gameboard = ({
         />
       </div>
       <div className="bounding-box"></div>
+      {!running && (
+        <button className="next-button" onClick={nextLevelClickHandler}>
+          Take me to the next level
+        </button>
+      )}
     </div>
   );
 };

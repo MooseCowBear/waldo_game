@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { hours, minutes, seconds } from "../helpers/time_helpers";
 
 export default Timer = ({ time, setTime, running }) => {
   useEffect(() => {
@@ -12,18 +13,6 @@ export default Timer = ({ time, setTime, running }) => {
     }
     return () => clearInterval(interval);
   }, [running]);
-
-  const seconds = (time) => {
-    return (time / 1000) % 60;
-  };
-
-  const minutes = (time) => {
-    return Math.floor(time / 60000) % 60;
-  };
-
-  const hours = (time) => {
-    return Math.floor(time / 3600000);
-  };
 
   return (
     <div>

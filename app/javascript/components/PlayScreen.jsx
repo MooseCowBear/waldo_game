@@ -25,6 +25,7 @@ export default PlayScreen = () => {
         setLevel={setLevel}
         zoomLevel={zoomLevel}
         setZoomLevel={setZoomLevel}
+        running={running}
         setRunning={setRunning}
         time={time}
         setTime={setTime}

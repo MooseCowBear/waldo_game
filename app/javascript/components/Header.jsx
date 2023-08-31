@@ -18,21 +18,18 @@ export default Header = ({
   };
 
   const zoomOutHandler = () => {
-    // might not want to go out as far as -1
     if (zoomLevel > 0) {
       setZoomLevel((zoomLevel) => zoomLevel - 1);
     }
   };
 
   const clickHandler = () => {
-    // note: if they quit, then won't actually update level or score so can pass dummy values
     levelFinished(
       null,
       time,
       setRunning,
       null,
       null,
-      setTime,
       false
     );
     setZoomLevel(0);

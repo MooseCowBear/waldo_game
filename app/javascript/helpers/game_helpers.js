@@ -35,7 +35,6 @@ export const levelFinished = (
   setRunningCallback,
   score,
   setScoreCallback,
-  setTimeCallback,
   completed = true
 ) => {
   setRunningCallback(false);
@@ -45,5 +44,5 @@ export const levelFinished = (
     data[level] = time;
     setScoreCallback(data);
   }
-  setTimeCallback(0);
+  // setTimeCallback(0);
 };

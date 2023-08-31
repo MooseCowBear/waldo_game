@@ -26,6 +26,7 @@
   width: max-content;
   height: max-content;
   transform-origin: top left;
+  position: relative;
 }
 
 .game .image-wrapper img {
@@ -52,8 +53,20 @@
   transform: scale(2.5);
 }
 
-.inline {
+.inline, .button-wrapper {
   display: flex;
   align-items: center;
   gap: 0.3rem;
+}
+
+.next-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  padding: 1.5rem 2rem;
+  border-radius: 5px;
+  border: 2px solid black;
+  text-align: center;
 }
