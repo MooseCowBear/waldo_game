@@ -7,17 +7,8 @@ export default ScoresByLevel = ({
   lastLevelCompleted,
   initiallyOpen,
 }) => {
-  console.log(
-    "scores when they get into scores by level",
-    scores,
-    lastLevelCompleted
-  );
-
   const [open, setOpen] = useState(initiallyOpen);
   const [displaying, setDisplaying] = useState(5);
-
-  // would like: if the section is open for it to display upto the top 5 results
-  // and then have a see more button to expand
 
   const handleOpenClose = () => {
     if (open) {
@@ -72,7 +63,7 @@ export default ScoresByLevel = ({
           })}
         </ol>
       )}
-      {open && scores.length > displaying && (
+      {open && levelScores.length > displaying && (
         <button className="see-more" onClick={handleSeeMore}>
           see more
         </button>
