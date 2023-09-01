@@ -1,12 +1,17 @@
 import React, { useState } from "react";
 import { levelDescription } from "../helpers/level_helpers";
+import { displayName } from "../helpers/score_helpers";
 
 export default ScoresByLevel = ({
   scores,
   lastLevelCompleted,
   initiallyOpen,
 }) => {
-  console.log("scores when they get into scores by level", scores);
+  console.log(
+    "scores when they get into scores by level",
+    scores,
+    lastLevelCompleted
+  );
 
   const [open, setOpen] = useState(initiallyOpen);
   const [displaying, setDisplaying] = useState(5);
@@ -27,9 +32,9 @@ export default ScoresByLevel = ({
     }
   };
 
-  const levelScores = scores.filter(
-    (score) => score.level === lastLevelCompleted
-  );
+  const levelScores = scores.filter((score) => {
+     return score.level === lastLevelCompleted;
+  });
 
   const scoresToDisplay = levelScores.slice(0, displaying);
 
@@ -46,7 +51,7 @@ export default ScoresByLevel = ({
           {scoresToDisplay.map((score, index) => {
             return (
               <li key={index} className="score">
-                <p>{score.name}</p>
+                <p>{displayName(score.name)}</p>
                 <p>{score.time}</p>
               </li>
             );

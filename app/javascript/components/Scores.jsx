@@ -19,7 +19,8 @@ export default Scores = () => {
       .then((res) => setScores(res))
       .catch(() => {
         console.log("THERE WAS AN ERROR");
-        navigate("/")});
+        navigate("/");
+      });
   }, []);
 
   console.log("scores are: ", scores);
@@ -28,7 +29,7 @@ export default Scores = () => {
     navigate("/");
   };
 
-  // do we want all of them to be open initially? 
+  // do we want all of them to be open initially?
 
   return (
     <div>
@@ -38,21 +39,27 @@ export default Scores = () => {
         <p>No one has completed this level yet.</p>
         <button onClick={newGameHandler}>Be the first!</button>
       </div>
-      <ScoresByLevel
-        scores={scores}
-        lastLevelCompleted={2}
-        initiallyOpen={true}
-      />
-      <ScoresByLevel
-        score={scores}
-        lastLevelCompleted={1}
-        initiallyOpen={true}
-      />
-      <ScoresByLevel
-        score={scores}
-        lastLevelCompleted={0}
-        initiallyOpen={true}
-      />
+      {scores && (
+        <>
+          <ScoresByLevel
+            scores={scores}
+            lastLevelCompleted={2}
+            initiallyOpen={true}
+          />
+
+          <ScoresByLevel
+            scores={scores}
+            lastLevelCompleted={1}
+            initiallyOpen={true}
+          />
+
+          <ScoresByLevel
+            scores={scores}
+            lastLevelCompleted={0}
+            initiallyOpen={true}
+          />
+        </>
+      )}
     </div>
   );
 };

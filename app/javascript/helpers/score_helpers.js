@@ -8,5 +8,12 @@ export const getTotalScoreAndLastLevel = (score) => {
       lastLevel = Math.max(lastLevel, key);
     }
   }
-  return { sum: sum, lastLevel: lastLevel };
+  return { time: sum, level: lastLevel };
+};
+
+export const displayName = (name) => {
+  if (name.trim() === "") {
+    return "Anonymous";
+  }
+  return name;
 };
