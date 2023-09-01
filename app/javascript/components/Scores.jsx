@@ -32,34 +32,41 @@ export default Scores = () => {
   // do we want all of them to be open initially?
 
   return (
-    <div>
-      <h1>Scores</h1>
-      <div className="scores-category impossible">
-        <h2>Impossible</h2>
-        <p>No one has completed this level yet.</p>
-        <button onClick={newGameHandler}>Be the first!</button>
+    <div className="scores-wrapper">
+      <div className="scores">
+        <h1>Scores</h1>
+        <div className="scores-category impossible">
+          <div className="title-wrapper">
+            <p>last completed level</p>
+            <h2>Impossible</h2>
+          </div>
+          <p>No one has completed this level yet.</p>
+          <button className="new-game" onClick={newGameHandler}>
+            Be the first!
+          </button>
+        </div>
+        {scores && (
+          <>
+            <ScoresByLevel
+              scores={scores}
+              lastLevelCompleted={2}
+              initiallyOpen={true}
+            />
+
+            <ScoresByLevel
+              scores={scores}
+              lastLevelCompleted={1}
+              initiallyOpen={true}
+            />
+
+            <ScoresByLevel
+              scores={scores}
+              lastLevelCompleted={0}
+              initiallyOpen={true}
+            />
+          </>
+        )}
       </div>
-      {scores && (
-        <>
-          <ScoresByLevel
-            scores={scores}
-            lastLevelCompleted={2}
-            initiallyOpen={true}
-          />
-
-          <ScoresByLevel
-            scores={scores}
-            lastLevelCompleted={1}
-            initiallyOpen={true}
-          />
-
-          <ScoresByLevel
-            scores={scores}
-            lastLevelCompleted={0}
-            initiallyOpen={true}
-          />
-        </>
-      )}
     </div>
   );
 };

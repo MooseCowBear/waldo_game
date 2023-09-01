@@ -33,17 +33,29 @@ export default ScoresByLevel = ({
   };
 
   const levelScores = scores.filter((score) => {
-     return score.level === lastLevelCompleted;
+    return score.level === lastLevelCompleted;
   });
 
   const scoresToDisplay = levelScores.slice(0, displaying);
 
   return (
     <div className="scores-category">
-      <div className="header">
-        <h2>{levelDescription(lastLevelCompleted)}</h2>
-        <button onClick={handleOpenClose}>
-          {open ? "collapse" : "expand"}
+      <div className="scores-header">
+        <div className="title-wrapper">
+          <p>last completed level</p>
+          <h2>{levelDescription(lastLevelCompleted)}</h2>
+        </div>
+        <button className="open-button" onClick={handleOpenClose}>
+          <svg
+            className={open ? "arrow up" : "arrow"}
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+          >
+            <path
+              fill=""
+              d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+            />
+          </svg>
         </button>
       </div>
       {open && (
@@ -51,15 +63,19 @@ export default ScoresByLevel = ({
           {scoresToDisplay.map((score, index) => {
             return (
               <li key={index} className="score">
-                <p>{displayName(score.name)}</p>
-                <p>{score.time}</p>
+                <p>
+                  <span>{displayName(score.name)}</span>
+                  <span>{score.time}</span>
+                </p>
               </li>
             );
           })}
         </ol>
       )}
       {open && scores.length > displaying && (
-        <button onClick={handleSeeMore}>see more</button>
+        <button className="see-more" onClick={handleSeeMore}>
+          see more
+        </button>
       )}
     </div>
   );
