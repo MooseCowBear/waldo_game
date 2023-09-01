@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_01_103622) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_01_125737) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "scores", force: :cascade do |t|
-    t.integer "last_level_completed", null: false
+    t.integer "level", null: false
     t.integer "time", null: false
     t.string "name", default: ""
     t.datetime "created_at", null: false

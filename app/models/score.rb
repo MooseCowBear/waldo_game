@@ -1,5 +1,5 @@
 class Score < ApplicationRecord
-  validates :last_level_completed, presence: true
+  validates :level, presence: true
   validates :time, presence: true
 
   before_validation :strip_input_fields
