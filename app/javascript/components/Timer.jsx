@@ -6,7 +6,7 @@ export default Timer = ({ time, setTime, running }) => {
     let interval;
     if (running) {
       interval = setInterval(() => {
-        setTime((prevTime) => prevTime + 1000);
+        setTime((prevTime) => prevTime + 1);
       }, 1000);
     } else {
       clearInterval(interval);
