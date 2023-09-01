@@ -6,13 +6,9 @@ export default Form = ({ score }) => {
   const navigate = useNavigate();
   const [name, setName] = useState("");
 
-  console.log("score when you get to form", score);
-
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log("the form has been submitted");
 
-    // need back end...
     const { time, level } = getTotalScoreAndLastLevel(score);
     const url = "/api/v1/scores/create";
     const body = {
@@ -30,18 +26,18 @@ export default Form = ({ score }) => {
       },
       body: JSON.stringify(body),
     })
-    .then((res) => {
-      if (res.ok) {
-        return;
-      }
-      throw new Error("Network response was not ok.");
-    })
-    .then(() => {
-      navigate("/scores");
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+      .then((res) => {
+        if (res.ok) {
+          return;
+        }
+        throw new Error("Network response was not ok.");
+      })
+      .then(() => {
+        navigate("/scores");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   const changeHandler = (e) => {

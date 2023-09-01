@@ -9,6 +9,7 @@ export default PlayScreen = () => {
 
   const [running, setRunning] = useState(true);
   const [time, setTime] = useState(0);
+  const [hasQuit, setHasQuit] = useState(false);
 
   return (
     <div className="game wrapper">
@@ -20,6 +21,8 @@ export default PlayScreen = () => {
         setTime={setTime}
         running={running}
         setRunning={setRunning}
+        setHasQuit={setHasQuit}
+        score={score}
       />
       <Gameboard
         level={level}
@@ -32,6 +35,7 @@ export default PlayScreen = () => {
         setTime={setTime}
         score={score}
         setScore={setScore}
+        hasQuit={hasQuit}
       />
     </div>
   );

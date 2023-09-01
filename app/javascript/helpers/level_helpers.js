@@ -3,7 +3,6 @@ export const levelDescription = (level) => {
   return descriptions[level];
 };
 
-// temp, will move this to backend
 export const levelInfo = (level) => {
   return {
     0: { x: 0.138671875, y: 0.1605839416 },

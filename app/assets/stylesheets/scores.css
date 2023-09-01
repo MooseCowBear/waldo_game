@@ -36,7 +36,7 @@
   border: 2px solid var(--neutral-500);
 }
 
-.scores-category .scores-header {
+.scores-header {
   display: flex;
   justify-content: space-between;
   align-items: last baseline;
@@ -63,11 +63,19 @@
   gap: 1rem;
 }
 
+.play-again {
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  border: 2px solid var(--neutral-500);
+  background-color: var(--neutral-100t);
+  text-transform: lowercase;
+  letter-spacing: 1px;
+}
+
 .see-more, .scores .new-game {
   align-self: center;
   text-transform: uppercase;
   letter-spacing: 2px;
-  text-decoration: none;
   padding: 1rem 2rem;
   border-radius: 5px;
   border: 2px solid var(--neutral-500);
@@ -77,7 +85,9 @@
 .see-more:hover, 
 .see-more:focus,
 .scores .new-game:hover,
-.scores .new-game:focus {
+.scores .new-game:focus,
+.play-again:hover,
+.play-again:focus {
   background-color: var(--neutral-500);
   color: var(--neutral-100);
 }

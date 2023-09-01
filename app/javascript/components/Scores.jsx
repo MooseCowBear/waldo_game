@@ -11,19 +11,15 @@ export default Scores = () => {
     fetch(url)
       .then((res) => {
         if (res.ok) {
-          console.log("result of fetch is:", res);
           return res.json();
         }
         throw new Error("Network response was not ok.");
       })
       .then((res) => setScores(res))
       .catch(() => {
-        console.log("THERE WAS AN ERROR");
         navigate("/");
       });
   }, []);
-
-  console.log("scores are: ", scores);
 
   const newGameHandler = () => {
     navigate("/");
@@ -34,7 +30,12 @@ export default Scores = () => {
   return (
     <div className="scores-wrapper">
       <div className="scores">
-        <h1>Scores</h1>
+        <div className="scores-header">
+          <h1>Scores</h1>
+          <button className="play-again" onClick={newGameHandler}>
+            Play again
+          </button>
+        </div>
         <div className="scores-category impossible">
           <div className="title-wrapper">
             <p>last completed level</p>

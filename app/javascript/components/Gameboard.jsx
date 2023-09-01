@@ -14,6 +14,7 @@ export default Gameboard = ({
   setTime,
   score,
   setScore,
+  hasQuit
 }) => {
   const [boundingBoxActive, setBoundingBoxActive] = useState(false);
   const [errorActive, setErrorActive] = useState(false);
@@ -27,7 +28,6 @@ export default Gameboard = ({
     setBoundingBoxActive(false);
   }
 
-  // TEMP: this is for level 0 image, will FETCH this
   const winConditions = levelInfo();
   const normalizedWinningX = winConditions[level].x;
   const normalizedWinningY = winConditions[level].y;
@@ -46,16 +46,6 @@ export default Gameboard = ({
     const imageWidth = e.target.clientWidth;
     const imageHeight = e.target.clientHeight;
 
-    console.log(
-      "x, y of click",
-      x,
-      y,
-      "image width",
-      imageWidth,
-      "image height",
-      imageHeight
-    );
-
     const charFound = found(
       60,
       x,
@@ -65,8 +55,6 @@ export default Gameboard = ({
       normalizedWinningX,
       normalizedWinningY
     );
-
-    console.log("found?", charFound);
 
     if (charFound) {
       levelFinished(level, time, setRunning, score, setScore);
@@ -119,13 +107,13 @@ export default Gameboard = ({
           </div>
         )}
       </div>
-      {!running && level < 3 && (
+      {!running && !hasQuit && (
         <button className="next-button" onClick={nextLevelClickHandler}>
           <p className="upper">You found the target!</p>
           <p className="lower">Click to move on to the next level.</p>
         </button>
       )}
-      {!running && level === 3 && (
+      {hasQuit && (
         <div className="form-wrapper">
           <Form score={score} />
         </div>

@@ -17,3 +17,7 @@ export const displayName = (name) => {
   }
   return name;
 };
+
+export const hasCompletedLevel = (score) => {
+  return Object.values(score).some(x => x !== null);
+}

@@ -1,7 +1,9 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import Timer from "./Timer";
 import { levelFinished } from "../helpers/game_helpers";
 import { levelDescription } from "../helpers/level_helpers";
+import { hasCompletedLevel } from "../helpers/score_helpers";
 
 export default Header = ({
   level,
@@ -11,7 +13,11 @@ export default Header = ({
   setTime,
   running,
   setRunning,
+  setHasQuit,
+  score,
 }) => {
+  const navigate = useNavigate();
+
   const zoomInHandler = () => {
     if (zoomLevel < 2) {
       setZoomLevel((zoomLevel) => zoomLevel + 1);
@@ -25,8 +31,13 @@ export default Header = ({
   };
 
   const clickHandler = () => {
-    levelFinished(null, time, setRunning, null, null, false);
+    levelFinished(level, time, setRunning, score, null, false);
     setZoomLevel(0);
+    setHasQuit(true);
+
+    if (!hasCompletedLevel(score)) {
+      navigate("/scores");
+    }
   };
 
   return (
