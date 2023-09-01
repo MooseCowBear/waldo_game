@@ -46,5 +46,4 @@ export const levelFinished = (
     data[level] = time;
     setScoreCallback(data);
   }
-  // setTimeCallback(0);
 };

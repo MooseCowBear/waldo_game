@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { levelDescription } from "../helpers/level_helpers";
 import { displayName } from "../helpers/score_helpers";
+import { hours, minutes, seconds } from "../helpers/time_helpers";
 
 export default ScoresByLevel = ({
   scores,
@@ -56,7 +57,15 @@ export default ScoresByLevel = ({
               <li key={index} className="score">
                 <p>
                   <span>{displayName(score.name)}</span>
-                  <span>{score.time}</span>
+                  <span>
+                    <span>{hours(score.time)}:</span>
+                    <span>
+                      {minutes(score.time).toString().padStart(2, "0")}:
+                    </span>
+                    <span>
+                      {seconds(score.time).toString().padStart(2, "0")}
+                    </span>
+                  </span>
                 </p>
               </li>
             );
