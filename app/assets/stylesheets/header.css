@@ -44,6 +44,7 @@
   padding: 1rem 2rem;
   border-radius: 5px;
   border: 2px solid var(--neutral-500);
+  background-color: transparent;
 }
 
 .quit:hover, 
