@@ -36,6 +36,13 @@ export default Header = ({
     setHasQuit(true);
 
     if (!hasCompletedLevel(score)) {
+      /* 
+        if the player has quit before completing any levels,
+        go ahead and just navigate to the scores path. 
+        Form will not be displayed, as there is no reason to record
+        the non-existent score. In this case, hasQuit doesn't do anything
+        since gameboard doesn't get rerendered.
+      */
       navigate("/scores");
     }
   };

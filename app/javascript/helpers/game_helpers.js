@@ -22,14 +22,11 @@ export const found = (
   );
 };
 
-/* the level might finish one of two ways: either they quit or they found the character 
+/* 
+  the level might finish one of two ways: 
+  either they quit or they found the character 
   if they quit, don't bother updating the score. 
-  if they finished, update it. 
-  either way stop the timer and reset timer to 0 (?)
-
-  outside of this, want to redirect appropriately
-  true means increment the level
-  false means navigate to game over screen
+  if they finished, update it. Stop the clock either way.
 */
 export const levelFinished = (
   level,

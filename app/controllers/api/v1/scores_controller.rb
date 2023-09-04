@@ -16,7 +16,7 @@ class Api::V1::ScoresController < ApplicationController
   private
 
   def score_params
-    # saves both with the require part and without
+    # saves both with the require and without
     # but stops complaining about unpermitted params with require...
     params.require(:score).permit(:name, :time, :level)
   end
