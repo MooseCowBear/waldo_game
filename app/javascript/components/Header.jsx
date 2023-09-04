@@ -55,7 +55,7 @@ export default Header = ({
       </div>
       <div className="action-div">
         <div className="button-wrapper">
-          <button onClick={zoomInHandler}>
+          <button onClick={zoomInHandler} aria-label="zoom in">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
               <path
                 fill=""
@@ -63,7 +63,7 @@ export default Header = ({
               />
             </svg>
           </button>
-          <button onClick={zoomOutHandler}>
+          <button onClick={zoomOutHandler} aria-label="zoom out">
             <svg
               className="out"
               xmlns="http://www.w3.org/2000/svg"
