@@ -15,7 +15,7 @@ export const displayName = (name) => {
   if (name.trim() === "") {
     return "Anonymous";
   }
-  return name;
+  return name.trim();
 };
 
 export const hasCompletedLevel = (score) => {
