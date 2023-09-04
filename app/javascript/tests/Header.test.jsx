@@ -3,11 +3,14 @@ import { render, screen } from "@testing-library/react";
 import Header from "../components/Header";
 import { MemoryRouter } from "react-router-dom";
 
-describe("Header component", () => {
-  jest.mock("../components/Timer", () => {
-    return <div data-testid="timer"></div>;
-  });
+jest.mock("../components/Timer", () => ({
+  __esModule: true,
+  default: () => {
+    return <div data-testid="timer" />;
+  },
+}));
 
+describe("Header component", () => {
   const mockFunction = jest.fn();
   const mockScore = { 0: null };
 
