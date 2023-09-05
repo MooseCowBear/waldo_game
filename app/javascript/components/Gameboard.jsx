@@ -90,10 +90,12 @@ export default Gameboard = ({
         {boundingBoxActive && (
           <div
             className="bounding-box"
+            aria-label="bounding box"
             style={{ left: position.x, top: position.y }}
           >
             {errorActive && (
               <svg
+                aria-label="wrong choice marker"
                 className={`wrong-icon`}
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
