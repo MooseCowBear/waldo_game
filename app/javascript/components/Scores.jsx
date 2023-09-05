@@ -1,31 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import ScoresByLevel from "./ScoresByLevel";
+import useScores from "../helpers/scores_fetcher";
 
 export default Scores = () => {
   const navigate = useNavigate();
-  const [scores, setScores] = useState([]);
 
-  useEffect(() => {
-    const url = "/api/v1/scores/index";
-    fetch(url)
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-        throw new Error("Network response was not ok.");
-      })
-      .then((res) => setScores(res))
-      .catch(() => {
-        navigate("/");
-      });
-  }, []);
+  const { scores, error, loading } = useScores();
 
   const newGameHandler = () => {
     navigate("/");
   };
 
-  // do we want all of them to be open initially?
+  if (error) return <p className="text-center">Something went wrong.</p>;
+  if (loading) return <p className="text-center">getting scores...</p>;
 
   return (
     <div className="scores-wrapper">
