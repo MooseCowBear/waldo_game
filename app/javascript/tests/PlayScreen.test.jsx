@@ -1,8 +1,6 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import { MemoryRouter } from "react-router-dom";
 import PlayScreen from "../components/PlayScreen";
-import Gameboard from "../components/Gameboard";
 
 jest.mock("../components/Header", () => ({
   __esModule: true,

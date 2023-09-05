@@ -37,7 +37,11 @@ export default ScoresByLevel = ({
           <p>last completed level</p>
           <h2>{levelDescription(lastLevelCompleted)}</h2>
         </div>
-        <button className="open-button" onClick={handleOpenClose}>
+        <button
+          className="open-button"
+          onClick={handleOpenClose}
+          aria-label="toggle display scores"
+        >
           <svg
             className={open ? "arrow up" : "arrow"}
             xmlns="http://www.w3.org/2000/svg"
