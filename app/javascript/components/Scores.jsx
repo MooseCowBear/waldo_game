@@ -12,8 +12,8 @@ export default Scores = () => {
     navigate("/");
   };
 
-  if (error) return <p className="text-center">Something went wrong.</p>;
-  if (loading) return <p className="text-center">getting scores...</p>;
+  if (error) return <p>Something went wrong.</p>;
+  if (loading) return <p>getting scores...</p>;
 
   return (
     <div className="scores-wrapper">
