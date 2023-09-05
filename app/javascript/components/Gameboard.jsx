@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import { found, levelFinished } from "../helpers/game_helpers";
-import { levelInfo } from "../helpers/level_helpers"; //temp
+import { levelInfo } from "../helpers/level_helpers"; 
 import Form from "./Form";
 
 export default Gameboard = ({
@@ -85,7 +85,7 @@ export default Gameboard = ({
           className={`image zoom-${zoomLevel}`}
           id="game-image"
           src={`images/level_${level}.jpeg`}
-          alt=""
+          alt="game image"
         />
         {boundingBoxActive && (
           <div
