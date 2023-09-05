@@ -48,7 +48,7 @@ describe("Gameboard", () => {
     expect(error).toBeInTheDocument();
   });
 
-  test("if not boundingBoxActive, bounding box div is not displayed", () => {
+  test("if not clicked, bounding box and error svg not displayed", () => {
     const mockFunction = jest.fn();
     const mockScore = { 0: null };
     render(
@@ -68,10 +68,12 @@ describe("Gameboard", () => {
     );
 
     const box = screen.queryByLabelText("bounding box");
+    const error = screen.queryByLabelText("wrong choice marker");
     expect(box).toBeNull();
+    expect(error).toBeNull();
   });
 
-  test("if not errorActive, then wrong choice indication is not displayed", () => {
+  test("if click is winning, bounding box present but error not", () => {
     const mockFunction = jest.fn();
     const mockScore = { 0: null };
     render(
@@ -90,7 +92,19 @@ describe("Gameboard", () => {
       />
     );
 
+    const gameImg = screen.getByAltText("game image");
+    const event = new MouseEvent("click", {
+      bubbles: true,
+      cancelable: true,
+    });
+
+    Object.defineProperty(event, "offsetX", { value: 0 });
+    Object.defineProperty(event, "offsetY", { value: 0 });
+    fireEvent(gameImg, event);
+
+    const box = screen.getByLabelText("bounding box");
     const error = screen.queryByLabelText("wrong choice marker");
+    expect(box).toBeInTheDocument();
     expect(error).toBeNull();
   });
 
