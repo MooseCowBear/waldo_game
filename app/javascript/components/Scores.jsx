@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import ScoresByLevel from "./ScoresByLevel";
-import useScores from "../helpers/scores_fetcher";
+import { useScores } from "../helpers/scores_fetcher";
 
 export default Scores = () => {
   const navigate = useNavigate();

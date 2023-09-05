@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export default useScores = () => {
+export const useScores = () => {
   const [scores, setScores] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
