@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
 }
-
+ 
 .header .action-div {
   width: 100%;
   display: flex;
@@ -72,4 +72,10 @@
 
 .out {
   transform: rotate(180deg);
+}
+
+@media only screen and (max-width: 500px) {
+  .header .action-div {
+    flex-direction: column;
+  }
 }

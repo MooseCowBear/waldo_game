@@ -55,7 +55,7 @@ export default Form = ({ score }) => {
         Name:
         <input type="text" id="name" value={name} onChange={changeHandler} />
       </label>
-      <input type="submit" />
+      <input type="submit" value={"submit"}/>
       <button className="new-game" onClick={clickHandler} type="button">
         Or start over without recording your score.
       </button>

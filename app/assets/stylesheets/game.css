@@ -88,7 +88,7 @@ svg.wrong-icon {
   width: 40px;
   animation-name: fadein;
   animation-duration: 800ms;
-  animation-delay: 200ms;
+  animation-delay: 100ms;
   animation-timing-function: linear;
 }
 
