@@ -1,6 +1,6 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { found, levelFinished } from "../helpers/game_helpers";
-import { levelInfo } from "../helpers/level_helpers"; 
+import { levelInfo } from "../helpers/level_helpers";
 import Form from "./Form";
 
 export default Gameboard = ({
@@ -14,7 +14,7 @@ export default Gameboard = ({
   setTime,
   score,
   setScore,
-  hasQuit
+  hasQuit,
 }) => {
   const [boundingBoxActive, setBoundingBoxActive] = useState(false);
   const [errorActive, setErrorActive] = useState(false);
@@ -32,38 +32,44 @@ export default Gameboard = ({
   const normalizedWinningX = winConditions[level].x;
   const normalizedWinningY = winConditions[level].y;
 
-  if (boundingBoxActive && running) {
-    setTimeout(() => {
-      setBoundingBoxActive(false);
-      setErrorActive(false);
-    }, 1000);
-  }
+  useEffect(() => {
+    if (boundingBoxActive && running) {
+      const timeout = setTimeout(() => {
+        setBoundingBoxActive(false);
+        setErrorActive(false);
+      }, 1000);
+
+      return () => clearTimeout(timeout);
+    }
+  }, [boundingBoxActive]);
 
   const imageClickHandler = (e) => {
-    const x = e.nativeEvent.offsetX;
-    const y = e.nativeEvent.offsetY;
+    if (!boundingBoxActive) {
+      const x = e.nativeEvent.offsetX;
+      const y = e.nativeEvent.offsetY;
 
-    const imageWidth = e.target.clientWidth;
-    const imageHeight = e.target.clientHeight;
+      const imageWidth = e.target.clientWidth;
+      const imageHeight = e.target.clientHeight;
 
-    const charFound = found(
-      60,
-      x,
-      y,
-      imageWidth,
-      imageHeight,
-      normalizedWinningX,
-      normalizedWinningY
-    );
+      const charFound = found(
+        60,
+        x,
+        y,
+        imageWidth,
+        imageHeight,
+        normalizedWinningX,
+        normalizedWinningY
+      );
 
-    if (charFound) {
-      levelFinished(level, time, setRunning, score, setScore);
-      setPosition({ x: x, y: y });
-      setBoundingBoxActive(true);
-    } else {
-      setPosition({ x: x, y: y });
-      setBoundingBoxActive(true);
-      setErrorActive(true);
+      if (charFound) {
+        levelFinished(level, time, setRunning, score, setScore);
+        setPosition({ x: x, y: y });
+        setBoundingBoxActive(true);
+      } else {
+        setPosition({ x: x, y: y });
+        setBoundingBoxActive(true);
+        setErrorActive(true);
+      }
     }
   };
 
